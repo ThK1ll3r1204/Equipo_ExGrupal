@@ -23,5 +23,12 @@ namespace ExamenGrupal_AventuraDeTexto
         {
             Console.WriteLine("Interacción 2 en la ubicación base.");
         }
+
+        //Metodo que muestra el final del juego, en los 3 escenarios es donde se edita el final
+        public virtual void MostrarFinalDelJuego(Jugador jugador)
+        {
+            Console.WriteLine("Mostrar final del juego del area en cuestion");
+
+        }
     }
 }

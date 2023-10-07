@@ -8,6 +8,7 @@ namespace ExamenGrupal_AventuraDeTexto
 {
     class CuevaOscura : Mapa
     {
+        
         public override void MostrarInteracciones()
         {
             Console.WriteLine("Interacción 1: Encuentras una espada mágica.");
@@ -35,13 +36,21 @@ namespace ExamenGrupal_AventuraDeTexto
                     jugador.Destreza += 15;
                     break;
                 case 2:
-                    Console.WriteLine("La araña no acepta tu oferta y te ataca. Pierdes vida.");
-                    jugador.Vida -= 20;
+                    Console.WriteLine("La araña no acepta tu oferta y te ataca. Sus colmillos perforan tu brazo inyectando un poderoso veneno.");
+                    //Aqui esta la condicion para que se active el final
+                    jugador.EndingCheck = true;
                     break;
                 default:
                     Console.WriteLine("Opción no válida. No haces nada.");
                     break;
             }
+        }
+
+        //Final del escenario de cueva ya terminado
+        public override void MostrarFinalDelJuego(Jugador jugador)
+        {
+            Console.WriteLine("El veneno de la araña acaba con tus fuerzas, caes en seco al suelo, ves la luz al final de la cueva oscureciendose mientras sientes como eres arrastrado por ocho horripilantes patas. Tu historia acaba aqui, convertido en comida de araña.");
+            
         }
     }
 }

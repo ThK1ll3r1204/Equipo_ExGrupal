@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExamenGrupal_AventuraDeTexto
 {
-    class BosqueEncantado:Mapa
+    class BosqueEncantado : Mapa
     {
         public override void MostrarInteracciones()
         {
@@ -42,6 +42,13 @@ namespace ExamenGrupal_AventuraDeTexto
                     Console.WriteLine("Opción no válida. No haces nada.");
                     break;
             }
+        }
+
+        //Final del escenario de Bosque pendiente
+        public override void MostrarFinalDelJuego(Jugador jugador)
+        {
+            Console.WriteLine("blablabla");
+
         }
     }
 }

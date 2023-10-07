@@ -46,6 +46,7 @@
     <Compile Include="BosqueEncantado.cs" />
     <Compile Include="CastilloAbandonado.cs" />
     <Compile Include="CuevaOscura.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="Jugador.cs" />
     <Compile Include="Mapa.cs" />
     <Compile Include="Program.cs" />
