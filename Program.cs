@@ -36,6 +36,74 @@ namespace ExamenGrupal_AventuraDeTexto
             } while (fuerza + destreza + vida > 100);
 
             Jugador jugador = new Jugador(nombre, fuerza, destreza, vida);
+
+            Console.WriteLine("\nComienza la aventura...");
+
+            while (jugador.Vida > 0)
+            {
+                Console.WriteLine("\nElige una ubicación:");
+                Console.WriteLine("1. Bosque Encantado");
+                Console.WriteLine("2. Castillo Abandonado");
+                Console.WriteLine("3. Cueva Oscura");
+
+                int opcion = int.Parse(Console.ReadLine());
+
+                Mapa ubicacion = null;
+
+                switch (opcion)
+                {
+                    case 1:
+                        ubicacion = new BosqueEncantado();
+                        break;
+                    case 2:
+                        ubicacion = new CastilloAbandonado();
+                        break;
+                    case 3:
+                        ubicacion = new CuevaOscura();
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida. Inténtalo de nuevo.");
+                        continue;
+                }
+
+                Console.WriteLine($"\nTe encuentras en {ubicacion.GetType().Name}");
+                Console.WriteLine("Interacciones disponibles:");
+                ubicacion.MostrarInteracciones();
+
+                int interaccion = int.Parse(Console.ReadLine());
+
+                if (interaccion == 1)
+                {
+                    ubicacion.Interaccion1(jugador);
+                }
+                else if (interaccion == 2)
+                {
+                    ubicacion.Interaccion2(jugador);
+                }
+                else
+                {
+                    Console.WriteLine("Opción no válida. No haces nada.");
+                }
+
+                if (jugador.Fuerza >= 80)
+                {
+                    Console.WriteLine("\n¡Has encontrado el tesoro y ganado una gran fortuna! Has alcanzado un final especial. ¡Felicidades!");
+                    break;
+                }
+
+                if (jugador.Vida <= 0)
+                {
+                    Console.WriteLine("\n¡Has perdido! Tu aventura ha llegado a su fin.");
+                    break;
+                }
+
+                if (jugador.Fuerza >= 40 && jugador.Destreza >= 40)
+                {
+                    Console.WriteLine("\nHas logrado sobrevivir en esta ubicación. Tu aventura continúa.");
+                }
+            }
+
+            Console.WriteLine("\nFin de la aventura. ¡Gracias por jugar!");
         }
     }
 }
